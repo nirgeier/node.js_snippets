@@ -18,5 +18,3 @@ console.log(`global.privateNumber: ${global.privateNumber}`);
 
 // Print the variable using `this` to the console
 console.log(`this.privateNumber  : ${this.privateNumber}`);
-
-

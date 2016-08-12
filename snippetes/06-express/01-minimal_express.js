@@ -2,11 +2,17 @@ var express = require('express');
 var app = express();
 
 app.get('/', function(req, res) {
-    res.send('Hello');
+    res.send('Hello from express');
 });
 
-app.get('/users', function(req, res) {
-    res.send('Hello users...');
+app.get('/users/:user_id/:p', function(req, res) {
+    res.send(`Loading users url. UserId: ${req.params.user_id}`);
 });
 
-app.listen(3000);
+
+app.listen(process.env.PORT, function () {
+  console.log(`Example app listening on port ${process.env.PORT}!`);
+});
+
+
+npm install -g express-generator

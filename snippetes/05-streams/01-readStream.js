@@ -19,17 +19,23 @@ var stream = fs.createReadStream("longTextFile.txt", "UTF-8");
 // Stream is implementing the EventEmitter and has few events
 // for the read/write lifecycle
 
+stream.on('error', function(err){
+    console.log(err);
+    
+})
 
 
 // Local variable to store the total bytes which were read from the file
-var total = 0;
+var total = 0,
+counter = 0;
 
 // Print out the length of the chink that was read form file
 stream.on('data', function(chunk) {
 
+    ++counter;
+    
     // Print the length fhe current chunk of data
-    process.stdout.write(`chunk: ${total} | `);
-
+    process.stdout.write(`${counter} \t chunk: ${total} \n `);
     total += chunk.length;
 
 });
